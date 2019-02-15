@@ -1,6 +1,32 @@
 def frequently_used(file):
     reverse_dic = {}
-    mydic = each_word(file)  # the result of task2 callable,return mydic
+
+    f = open(file)
+    mylist = list()
+    mylist2 = list()
+    mydic = dict()
+    import string
+
+    for line in f:
+        mylist.append(line)
+
+    for word in mylist:
+        word = word.strip(string.whitespace)
+        word = word.lower()
+
+        for punc in string.punctuation:
+            word = word.replace(punc, ' ')
+
+        for i in word.split(' '):
+            mylist2.append(i)
+
+    for key in mylist2:
+        if key not in mydic:
+            mydic[key] = 1
+        else:
+            mydic[key] = mydic[key] + 1
+    
+  
     for key in mydic:
         val = mydic[key]
 
