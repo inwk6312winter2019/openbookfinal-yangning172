@@ -1,10 +1,30 @@
+#Function for unique_words
 def unique_words(book):
-	unique_list=[]
-	for line in book:
-		for word in line.split():
-			if word not in unique_list:
-				unique_list.append(word)
-	print (unique_list)
+    f = open(book)
+    mylist1 = []
+    mylist2 = []
+    mydic = {}
+    import string
+
+    for line in f:
+        line1 = line.strip().lower()
+        for punc in string.punctuation:
+            line1 = line1.replace(punc,' ')
+        for word in line1.split():
+            mylist1.append(word)
+    for key in mylist1:
+        if key not in mydic:
+            mydic[key] = 1
+        else:
+            mydic[key] += 1
+    for k in mydic:
+        mylist2.append(k)
+    print(mylist2)
+    return mylist2
+
+
+unique_words('Book1.txt')
+
 
 def count_the_article(file):
     f = open(file)
@@ -63,5 +83,4 @@ def starts_with_vow(book):
 
 
 print(starts_with_vow(book_open))
-
 
