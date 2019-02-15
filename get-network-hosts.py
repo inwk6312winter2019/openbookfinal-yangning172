@@ -67,3 +67,8 @@ print (json.dumps(response.json(), indent=4, separators=(',', ': ')))
 r_resp=response.json()
 
 print(r_resp["response"][0]["hostIp"])
+
+mydict = dice()
+for i in r_json "[Response]":
+    if i['hostname'] is not in mydict:
+        
